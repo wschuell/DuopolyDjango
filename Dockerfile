@@ -12,4 +12,4 @@ RUN pip install numpy psycopg2 psycopg2-binary django django-click django-crispy
 #RUN pip install -r requirements-prod.txt
 
 ADD . /code/
-RUN bash init_db.sh
+RUN python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic
